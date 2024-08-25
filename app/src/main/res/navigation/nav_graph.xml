@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_alarm_list">
+
+    <fragment
+        android:id="@+id/fragment_alarm_list"
+        android:name="com.example.alarm_app.AlarmListFragment"
+        android:label="Alarm List">
+        <action
+            android:id="@+id/action_alarmListFragment_to_createAlarmFragment"
+            app:destination="@id/fragment_create_alarm" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_create_alarm"
+        android:name="com.example.alarm_app.CreateAlarmFragment"
+        android:label="Create Alarm">
+        <action
+            android:id="@+id/action_createAlarmFragment_to_alarmListFragment"
+            app:destination="@id/fragment_alarm_list">
+            <argument
+                android:name="HOUR"
+                app:argType="integer"/>
+            <argument
+                android:name="MINUTE"
+                app:argType="integer"/>
+        </action>
+    </fragment>
+</navigation>
